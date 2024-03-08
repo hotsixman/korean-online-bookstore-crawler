@@ -1,5 +1,5 @@
 export interface ListSearchOption {
-    searchTarget?: 'All' | 'Book' | 'Foreign' | 'EBook' | 'Gift' | 'Used' | 'UsedStore';//전체, 책, 
+    searchTarget?: 'Book' | 'Foreign' | 'EBook';//
     keyWord?:string;
     keyTitle?:string;
     keyAuthor?:string;
@@ -13,7 +13,7 @@ export interface ListSearchOption {
 }
 
 export interface SearchData {
-    SearchTarget: 'All' | 'Book' | 'Foreign' | 'EBook' | 'Gift' | 'Used' | 'UsedStore';//전체, 책, 
+    SearchTarget: 'Book' | 'Foreign' | 'EBook';//
     KeyWord:string;
     KeyTitle:string;
     KeyAuthor:string;
