@@ -1,9 +1,9 @@
-import { ListSearchOption, SearchData } from "./types"
+import { AladinListSearchOption, AladinSearchData } from "./types"
 import axios from "axios";
 import {load} from 'cheerio';
 import { Book } from "../../types";
 
-const defaultOption:ListSearchOption = {
+const defaultOption:AladinListSearchOption = {
     searchTarget:'Book',
     page: null
 }
@@ -12,7 +12,7 @@ const defaultOption:ListSearchOption = {
  * @param listSearchOption 
  * @returns Array of itemId
  */
-export async function getList(listSearchOption:ListSearchOption):Promise<number[]>{
+export async function getList(listSearchOption:AladinListSearchOption):Promise<number[]>{
     let option = {
         ...defaultOption, 
         ...listSearchOption
@@ -194,7 +194,7 @@ function parseBookResponse(responseData:string):Book{
  * @param data 
  * @returns 
  */
-function stringifyData(data:SearchData){
+function stringifyData(data:AladinSearchData){
     let p = new URLSearchParams();
     let keys = Object.keys(data) as Array<keyof typeof data>;
     keys.forEach(key => {
@@ -204,12 +204,12 @@ function stringifyData(data:SearchData){
 }
 
 /**
- * ListSearchOption을 SearchData로 바꿔줌
+ * AladinListSearchOption을 AladinSearchData로 바꿔줌
  * @param option 
  * @returns 
  */
-function optionToData(option:ListSearchOption){
-    let data:SearchData = {
+function optionToData(option:AladinListSearchOption){
+    let data:AladinSearchData = {
         SearchTarget: option.searchTarget,
         KeyWord: '',
         KeyTitle: '',
