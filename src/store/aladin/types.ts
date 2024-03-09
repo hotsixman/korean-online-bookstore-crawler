@@ -1,5 +1,5 @@
 export interface ListSearchOption {
-    searchTarget?: 'Book' | 'Foreign' | 'EBook';//
+    searchTarget: 'Book' | 'Foreign' | 'EBook';//
     keyWord?:string;
     keyTitle?:string;
     keyAuthor?:string;

@@ -14,7 +14,7 @@ async function getList(listSearchOption:ListSearchOption):number[]
 #### 검색 옵션 타입
 ```ts
 export interface ListSearchOption {
-    searchTarget?: 'Book' | 'Foreign' | 'EBook';//국내 도서, 해외 도서, 전자책
+    searchTarget: 'Book' | 'Foreign' | 'EBook';//국내 도서, 해외 도서, 전자책
     keyWord?:string;//키워드
     keyTitle?:string;//제목
     keyAuthor?:string;//작가

@@ -4,6 +4,7 @@ import {load} from 'cheerio';
 import { Book } from "../../types";
 
 const defaultOption:ListSearchOption = {
+    searchTarget:'Book',
     page: null
 }
 
@@ -209,7 +210,7 @@ function stringifyData(data:SearchData){
  */
 function optionToData(option:ListSearchOption){
     let data:SearchData = {
-        SearchTarget: 'Book',
+        SearchTarget: option.searchTarget,
         KeyWord: '',
         KeyTitle: '',
         KeyAuthor: '',
@@ -222,9 +223,6 @@ function optionToData(option:ListSearchOption){
         DetailSearch: 1,
         ViewRowCount: 50
     };
-    if(option.searchTarget){
-        data.SearchTarget = option.searchTarget;
-    }
     if(option.keyWord){
         data.KeyWord = option.keyWord;
     }
