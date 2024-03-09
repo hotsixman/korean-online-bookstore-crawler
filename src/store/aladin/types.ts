@@ -1,4 +1,4 @@
-export interface ListSearchOption {
+export interface AladinListSearchOption {
     searchTarget: 'Book' | 'Foreign' | 'EBook';//
     keyWord?:string;
     keyTitle?:string;
@@ -12,7 +12,7 @@ export interface ListSearchOption {
     page?: number|null
 }
 
-export interface SearchData {
+export interface AladinSearchData {
     SearchTarget: 'Book' | 'Foreign' | 'EBook';//
     KeyWord:string;
     KeyTitle:string;
@@ -28,7 +28,7 @@ export interface SearchData {
     page?: number
 }
 
-export interface Category{
+export interface AladinCategory{
     [parent:string]: {
         [category:string]: number;
     }
