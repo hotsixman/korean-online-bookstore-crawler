@@ -187,7 +187,7 @@ function stringifyData(data) {
     return p.toString();
 }
 /**
- * ListSearchOption을 SearchData로 바꿔줌
+ * AladinListSearchOption을 AladinSearchData로 바꿔줌
  * @param option
  * @returns
  */
