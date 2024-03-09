@@ -1,6 +1,6 @@
-import { Category } from "./types"
+import { AladinCategory } from "./types"
 
-const category:Category = {
+const category:AladinCategory = {
     "eBook": {
         "경제경영": 38398,
         "라이트노벨": 56548,
