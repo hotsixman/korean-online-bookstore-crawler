@@ -24,9 +24,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const aladin = __importStar(require("./src/store/aladin/crawler"));
-const kobc = {
-    store: {
-        aladin
-    }
+const yes24 = __importStar(require("./src/store/yes24/crawler"));
+class KOBCFunction extends Function {
+}
+const kobc = new KOBCFunction();
+kobc.store = {
+    aladin,
+    yes24
 };
 exports.default = kobc;
