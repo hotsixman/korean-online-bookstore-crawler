@@ -26,10 +26,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const aladin = __importStar(require("./src/store/aladin/crawler"));
 const yes24 = __importStar(require("./src/store/yes24/crawler"));
 class KOBCFunction extends Function {
+    constructor() {
+        super(...arguments);
+        this.store = {
+            aladin,
+            yes24
+        };
+    }
 }
 const kobc = new KOBCFunction();
-kobc.store = {
-    aladin,
-    yes24
-};
 exports.default = kobc;
