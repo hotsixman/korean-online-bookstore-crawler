@@ -6,3 +6,4 @@
 각 서점마다 검색 옵션이 다르니 주의하세요.
 
 - [알라딘](/docs/stores/aladin.md)
+- [yes24](/docs/stores/yes24.md)
