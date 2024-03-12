@@ -100,6 +100,55 @@ function parseBookResponse(response:string){
     if($('.gd_titArea').find('em').text() === "eBook"){
         book.type = "eBook"
     }
+    //publisher
+    if($('span.gd_pub').length > 0){
+        book.publisher = $('span.gd_pub').text().trim();
+    }
+    //author, authorship, illustrator, translator
+    $('.gd_auth').text().trim().split('/').forEach(e => {
+        if(/원저$/.test(e)){
+            if(!book.authorship) book.authorship = [];
+            e.replace(/(.*?)원저$/, "$1").trim().split(',').forEach(el => {
+                book.authorship?.push(el.trim())
+            })
+        }
+        else if(/저$/.test(e)){
+            if(!book.author) book.author = [];
+            e.replace(/(.*?)저$/, '$1').trim().split(',').forEach(el => {
+                book.author?.push(el.trim());
+            })
+        }
+        else if(/글그림$/.test(e)){
+            if(!book.author) book.author = [];
+            if(!book.illustrator) book.illustrator = [];
+            e.replace(/(.*?)글그림$/, "$1").trim().split(',').forEach(el => {
+                book.author?.push(el.trim());
+                book.illustrator?.push(el.trim());
+            })
+        }
+        else if(/그림$/.test(e)){
+            if(!book.illustrator) book.illustrator = [];
+            e.replace(/(.*?)그림$/, "$1").trim().split(',').forEach(el => {
+                book.illustrator?.push(el.trim());
+            })
+        }
+        else if(/역$/.test(e)){
+            if(!book.translator) book.translator = [];
+            e.replace(/(.*?)역$/, "$1").trim().split(',').forEach(el => {
+                book.translator?.push(el.trim());
+            })
+        }
+    })
+    //price
+    $('.gd_infoTb').first().find('tr').each((i, e) => {
+        if($(e).find('th').text().trim() === "정가"){
+            book.price = Number($(e).find('td').find('span').text().replace(/,/g, '').replace('원', ''));
+        }
+        if($(e).find('th').text().trim() === "판매가"){
+            if(!book.prices)book.prices = {};
+            book.prices['yes24'] = Number($(e).find('td').find('span').text().replace(/,/g, '').replace('원', ''));
+        }
+    })
 
     return book;
 }
