@@ -4,7 +4,7 @@
 
 ### getList
 ```ts
-async function getList(listSearchOption:ListSearchOption):number[]
+async function getList(listSearchOption:AladinListSearchOption):number[]
 ```
 
 이 함수는 검색 옵션을 파라미터로 받아, 알라딘 내부에서 쓰이는 itemId의 배열을 반환합니다.
@@ -13,7 +13,7 @@ async function getList(listSearchOption:ListSearchOption):number[]
 
 #### 검색 옵션 타입
 ```ts
-export interface ListSearchOption {
+export interface AladinListSearchOption {
     searchTarget: 'Book' | 'Foreign' | 'EBook';//국내 도서, 해외 도서, 전자책
     keyWord?:string;//키워드
     keyTitle?:string;//제목
